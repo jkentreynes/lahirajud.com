@@ -1,0 +1,19 @@
+<section data-ng-controller="TrendingsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Trendings</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="trending in trendings" data-ng-href="#!/trendings/{{trending._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="trending.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="trending.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="trending.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!trendings.$resolved || trendings.length">
+    	No Trendings yet, why don't you <a href="/#!/trendings/create">create one</a>?
+    </div>
+</section>

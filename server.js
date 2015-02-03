@@ -19,7 +19,6 @@ var db = mongoose.connect(config.db, function(err) {
 		console.log(chalk.red(err));
 	}
 });
-
 // Init the express application
 var app = require('./config/express')(db);
 
